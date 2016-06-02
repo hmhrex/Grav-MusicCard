@@ -37,9 +37,6 @@ Track:
 
 1. [Create a Spotify Application](https://developer.spotify.com/my-applications).
 
-1. Install [jwilsson's Spotify Web API PHP library](https://github.com/jwilsson/spotify-web-api-php
-). [Using Composer](http://jwilsson.github.io/spotify-web-api-php/) is the recommended installation method.
-
 2. Copy this whole directory to your user/plugins directory.
 
 3. Edit line 131 in classes/MusicCard.php and add in your Client ID, Client Secret, and Redirect URI from your Spotify Application.
