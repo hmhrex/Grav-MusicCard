@@ -63,11 +63,6 @@ class MusicCardPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
-        if ($this->isAdmin()) {
-            $this->active = false;
-            return;
-        }
-        
         if ($this->config->get('plugins.musiccard.enabled')) {
             // Initialize Autoloader
             require_once(__DIR__ . '/vendor/autoload.php');
