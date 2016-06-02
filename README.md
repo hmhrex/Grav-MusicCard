@@ -52,7 +52,6 @@ Track:
 
 ## TODO: 
 
-- Move Spotify Web API PHP library to plugin.
 - Move client authorization ID, secret, and callback URI to the blueprint so that it can be edited in the Admin plugin
 
 Thanks to the Grav Team for writing the [MediaEmbed plugin](https://github.com/sommerregen/grav-plugin-mediaembed). I used this as a template to get things running at first.
