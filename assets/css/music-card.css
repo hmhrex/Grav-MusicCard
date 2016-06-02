@@ -1,0 +1,108 @@
+/* Album Objects
+************************/
+
+.music-card {
+    float: right;
+    clear: right;
+    margin: 10px 0 10px 15px;
+    width: 150px; }
+
+.music-card .album-cover {
+    max-width: 150px;
+    line-height: 0; }
+
+.music-card .album-cover img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -ms-transition: all 0.5s linear; }
+
+.music-card .album-cover a {
+    display: inline-block;
+    position: relative;
+    line-height: 0; }
+
+.music-card .album-cover .cover-image:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    border-radius: 5px 5px 0 0;
+    background: rgba(0, 0, 0, 0);
+    transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -ms-transition: all 0.5s linear; }
+
+.music-card .album-cover a:hover .cover-image:after {
+    background: rgba(0, 0, 0, 0.5) !important; }
+
+.music-card .album-cover i {
+    visibility: hidden;
+    opacity: 0;
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    font-size: 4rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -ms-transition: all 0.5s linear; }
+
+.music-card .album-cover a:hover i {
+    visibility: visible;
+    opacity: 1; }
+
+.music-card .album-details {
+    border-radius: 0 0 5px 5px;
+    padding: 15px;
+    text-align: center; }
+
+.music-card .album-details > div:not(:last-child) {
+    margin-bottom: 5px; }
+
+.music-card .album-details p {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1rem; }
+
+.music-card .album-details a {
+    transition: 0.5s color;
+    -moz-transition: 0.5s color;
+    -webkit-transition: 0.5s color;
+    -ms-transition: color 0.5s linear; }
+
+.music-card .album-artist {
+    margin-bottom: 7px; }
+
+.music-card .album-artist p {
+    font-weight: bold;
+    line-height: 1.2rem; }
+
+.music-card .album-title p,
+.music-card .track-title p {
+    font-size: 0.95rem; }
+
+.music-card .track-title-footer p,
+.music-card .album-release-date p {
+    font-style: italic;
+    font-size: 0.8rem; }
+
+.music-card .album-rating {
+    margin-top: 5px;
+    line-height: 0; }
+
+.music-card .album-rating .fa {
+    width: 14px;
+    height: 13px; }
+
+.music-card .album-review-link {
+    margin-top: 13px; }

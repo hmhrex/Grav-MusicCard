@@ -1,0 +1,46 @@
+name: Music Card
+version: 0.8
+description: "With **Music Card** a user can place a Spotify or MusicBrainz reference to an album or track in a markdown file and it will pull in the necessary data."
+icon: trello
+author:
+  name: hmh
+  email: harley@hicks.house
+  url: http://harlery.hicks.house
+keywords: album, song, track, spotify, music, embed
+license: BSD
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+        
+    built_in_css:
+      type: toggle
+      label: "Use built in CSS"
+      highlight: 1
+      default: 1
+      options:
+        1: "Yes"
+        0: "No"
+      validate:
+        type: bool
+
+    built_in_js:
+      type: toggle
+      label: "Use built in JS"
+      highlight: 1
+      default: 1
+      options:
+        1: "Yes"
+        0: "No"
+      validate:
+        type: bool

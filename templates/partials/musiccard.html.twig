@@ -1,0 +1,29 @@
+<div class="music-card">
+    <div class="album-cover">
+        <a href=" {{ musiccard.raw.link }} " target="_blank">
+            <i class="fa fa-play"></i>
+            <div class="cover-image">
+                <img src="{{ musiccard.raw.cover }}">
+            </div>
+        </a>
+    </div>
+    <div class="album-details">
+        <div class="album-artist">
+            <p>{{ musiccard.raw.artist }}</p>
+        </div>
+        {% if musiccard.raw.track_title %}
+        <div class="track-title">
+            <p>{{ musiccard.raw.track_title }}</p>
+        </div>
+        <div class="track-title-footer">
+            <p>from the album<p>
+        </div>
+        {% endif %}
+        <div class="album-title">
+            <p>{{ musiccard.raw.album_title }}</p>
+        </div>
+        <div class="album-release-date">
+            <p> {{ musiccard.raw.release_date }} </p>
+        </div>
+    </div>
+</div>
