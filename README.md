@@ -1,7 +1,5 @@
 # Music Card
 
-Version: 0.8
-
 ## Info
 
 Place a Spotify reference to an album or track in a markdown file and it will beautifully pull in the necessary data.
