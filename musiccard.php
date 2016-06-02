@@ -18,8 +18,6 @@ use Grav\Common\Twig\Twig;
 use Grav\Common\Page\Page;
 use Grav\Common\Page\Collection;
 use RocketTheme\Toolbox\Event\Event;
-
-use Grav\Plugin\MusicCard\Autoloader;
 use Grav\Plugin\MusicCard\MusicCard;
 
 class MusicCardPlugin extends Plugin
@@ -72,10 +70,9 @@ class MusicCardPlugin extends Plugin
         
         if ($this->config->get('plugins.musiccard.enabled')) {
             // Initialize Autoloader
-            require_once(__DIR__ . '/classes/Autoloader.php');
-            
-            $autoloader = new Autoloader();
-            $autoloader->register();
+            require_once(__DIR__ . '/vendor/autoloader.php');
+            // Initialize MusicCard
+            require_once(__DIR__ . '/classes/MusicCard.php');
             
             // Initialize MusicCard class
             $this->musiccard = new MusicCard($this->config);
