@@ -70,7 +70,7 @@ class MusicCardPlugin extends Plugin
         
         if ($this->config->get('plugins.musiccard.enabled')) {
             // Initialize Autoloader
-            require_once(__DIR__ . '/vendor/autoloader.php');
+            require_once(__DIR__ . '/vendor/autoload.php');
             // Initialize MusicCard
             require_once(__DIR__ . '/classes/MusicCard.php');
             
