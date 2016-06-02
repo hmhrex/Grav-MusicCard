@@ -4,7 +4,9 @@ Version: 0.8
 
 ## Info
 
-Place a Spotify reference to an album or track in a markdown file and it will beautifully pull in the necessary data. Currently this plugin uses Spotify links and album objects that it pulls information from. 
+Place a Spotify reference to an album or track in a markdown file and it will beautifully pull in the necessary data.
+
+*NOTE*: The play button links to Spotify, it does not play the track/album on the page.
 
 This uses [jwilsson's Spotify Web API PHP library](https://github.com/jwilsson/spotify-web-api-php
 ) to interface with the Spotify API, and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
