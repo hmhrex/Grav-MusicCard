@@ -1,7 +1,5 @@
 # Music Card
 
-Author: hmhrex
-
 Version: 0.8
 
 ## Info
