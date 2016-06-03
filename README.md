@@ -39,14 +39,8 @@ Track:
 
 2. Copy this whole directory to your user/plugins directory.
 
-3. Edit line 131 in classes/MusicCard.php and add in your Client ID, Client Secret, and Redirect URI from your Spotify Application.
-
-    ```php
-    $session = new \SpotifyWebAPI\Session('CLIENT_ID', 'CLIENT_SECRET', 'REDIRECT_URI');
-    ```
-
-## TODO: 
-
-- Move client authorization ID, secret, and callback URI to the blueprint so that it can be edited in the Admin plugin
+3. In the plugins settings, fill in the Client ID, Client Secret, and Redirect URI from your Spotify Application.
+    
+### Thanks
 
 Thanks to the Grav Team for writing the [MediaEmbed plugin](https://github.com/sommerregen/grav-plugin-mediaembed). I used this as a template to get things running at first.
