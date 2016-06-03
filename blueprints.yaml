@@ -1,5 +1,5 @@
 name: Music Card
-version: 0.85
+version: 1.0
 description: "With **Music Card** a user can place a Spotify or MusicBrainz reference to an album or track in a markdown file and it will pull in the necessary data."
 icon: trello
 author:
