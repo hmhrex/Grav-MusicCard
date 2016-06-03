@@ -123,10 +123,15 @@ class MusicCardPlugin extends Plugin
             $pages = $this->grav['pages']->all();
             $collection = new Collection();
             $albumreviews = $collection->append($pages->ofType('albumreview'));
+            $spotifyAPI = array(
+                "spotify_id" => $this->config->get('plugins.musiccard.spotify_id'),
+                "spotify_secret" => $this->config->get('plugins.musiccard.spotify_secret'),
+                "spotify_redirect" => $this->config->get('plugins.musiccard.spotify_redirect')
+            );
             
             // Apply MusicCard filter and save modified page content
             $page->setRawContent(
-                $this->musiccard->process($content, $config, $albumreviews)
+                $this->musiccard->process($content, $config, $albumreviews, $spotifyAPI)
             );
         }
     }

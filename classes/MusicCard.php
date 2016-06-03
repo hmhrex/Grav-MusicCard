@@ -108,8 +108,8 @@ class MusicCard
         return $content;
     }
     
-	public function process($content, $config = [], $reviews)
-    {
+	public function process($content, $config = [], $reviews, $spotifyAPI)
+    {   
         /** @var Twig $twig */
         $twig = self::getGrav()['twig'];
         
@@ -118,7 +118,7 @@ class MusicCard
 
         $content = preg_replace_callback(
             '~musiccard::([0-9a-z]+)::([0-9]+)::M~i',
-            function($match) use ($twig, &$uid, $config, $reviews) {
+            function($match) use ($twig, &$uid, $config, $reviews, $spotifyAPI) {
                 
                 list($embed, $data) = $this->hashes[$match[0]];
                 
@@ -128,7 +128,7 @@ class MusicCard
                     $id = $results[2];
 
                     // Spotify API setup and authentication
-                    $session = new \SpotifyWebAPI\Session('CLIENT_ID', 'CLIENT_SECRET', 'REDIRECT_URI');
+                    $session = new \SpotifyWebAPI\Session($spotifyAPI["spotify_id"], $spotifyAPI["spotify_secret"], $spotifyAPI["spotify_redirect"]);
                     $api = new \SpotifyWebAPI\SpotifyWebAPI();
                     $session->requestCredentialsToken();
                     $accessToken = $session->getAccessToken();
