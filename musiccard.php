@@ -128,10 +128,15 @@ class MusicCardPlugin extends Plugin
                 "spotify_secret" => $this->config->get('plugins.musiccard.spotify_secret'),
                 "spotify_redirect" => $this->config->get('plugins.musiccard.spotify_redirect')
             );
+            $soundcloudAPI = array(
+                "soundcloud_id" => $this->config->get('plugins.musiccard.soundcloud_id'),
+                "soundcloud_secret" => $this->config->get('plugins.musiccard.soundcloud_secret'),
+                "soundcloud_redirect" => $this->config->get('plugins.musiccard.soundcloud_redirect')
+            );
             
             // Apply MusicCard filter and save modified page content
             $page->setRawContent(
-                $this->musiccard->process($content, $config, $albumreviews, $spotifyAPI)
+                $this->musiccard->process($content, $config, $albumreviews, $spotifyAPI, $soundcloudAPI)
             );
         }
     }

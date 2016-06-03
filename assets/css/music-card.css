@@ -106,3 +106,14 @@
 
 .music-card .album-review-link {
     margin-top: 13px; }
+
+.music-card .music-source {
+    position: relative;
+    font-size: 18px;
+    line-height: 0; }
+
+.music-card .music-source i {
+    position: absolute;
+    right: -10px;
+    bottom: -12px;
+}

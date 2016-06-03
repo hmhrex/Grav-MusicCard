@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SpotifyWebAPI\\' => array($vendorDir . '/jwilsson/spotify-web-api-php/src'),
+    'SoundCloud\\' => array($vendorDir . '/glenscott/soundcloud/src'),
 );

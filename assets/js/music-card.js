@@ -26,7 +26,7 @@ jQuery(window).load(function(){
         
         // Set colors
         jQuery(this).parents('.music-card').find('.album-details').css('background-color', color1);
-        jQuery(this).parents('.music-card').find('p, .album-rating a').css('color', textColor);
+        jQuery(this).parents('.music-card').find('p, .album-rating a, i').css('color', textColor);
         
         // Choose the lighter color to use for play button
         // Reference: http://thesassway.com/intermediate/dynamically-change-text-color-based-on-its-background-with-sass
@@ -44,17 +44,6 @@ jQuery(window).load(function(){
         }
         
         jQuery(this).parents('.music-card').find('.fa-play').css('color', lightest);
-        
-        // Set hover color for rating stars.
-        jQuery(this).parents('.music-card').find('.album-rating a').hover(function() {
-            if (bgyiq > txtyiq) {
-                jQuery(this).css('color', 'rgb('+(secondary[1][0] + 30)+','+(secondary[1][1] + 30) +','+(secondary[1][2] + 30)+')');
-            } else {
-                jQuery(this).css('color', 'rgb('+(secondary[1][0] - 30)+','+(secondary[1][1] - 30) +','+(secondary[1][2] - 30)+')');
-            }
-        }, function() {
-            jQuery(this).css('color', textColor);
-        });
         
     });
 });

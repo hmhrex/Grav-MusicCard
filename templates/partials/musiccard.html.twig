@@ -15,15 +15,25 @@
         <div class="track-title">
             <p>{{ musiccard.raw.track_title }}</p>
         </div>
+        {% if musiccard.raw.album_title %}
         <div class="track-title-footer">
             <p>from the album<p>
         </div>
+        {% endif %}        
         {% endif %}
         <div class="album-title">
             <p>{{ musiccard.raw.album_title }}</p>
         </div>
         <div class="album-release-date">
             <p> {{ musiccard.raw.release_date }} </p>
+        </div>
+        <div class="music-source">
+            {% if musiccard.raw.source == 'spotify' %}
+            <i class="fa fa-spotify"></i>
+            {% endif %}
+            {% if musiccard.raw.source == 'soundcloud' %}
+            <i class="fa fa-soundcloud"></i>
+            {% endif %}
         </div>
     </div>
 </div>
