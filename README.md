@@ -1,19 +1,17 @@
-# Music Card
+# Music Card - SoundCloud
 
 ## Info
 
-Place a Spotify reference to an album or track in a markdown file and it will beautifully pull in the necessary data.
-
-*NOTE*: The play button links to Spotify, it does not play the track/album on the page.
+Place a Spotify or SoundCloud reference to an album or track in a markdown file and it will beautifully pull in the necessary data.
 
 This uses [jwilsson's Spotify Web API PHP library](https://github.com/jwilsson/spotify-web-api-php
-) to interface with the Spotify API, and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
+) to interface with the Spotify API, [mptre's PHP SoundCloud library](https://github.com/mptre/php-soundcloud) to interface with the SoundCloud API, and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
 
 The plan is to eventually support MusicBrainz links for albums that aren't on Spotify.
 
 ### Usage:
 
-Album:
+Spotify Album:
 
 ```markdown
 ![music-card](https://open.spotify.com/album/0wB19rOCyof5vPv6pYnCDH)
@@ -23,7 +21,7 @@ Album:
 ![Greys - Hover](assets/screenshot_greys_hover.png)
 
 
-Track:
+Spotify Track:
 
 ```markdown
 ![music-card](https://open.spotify.com/track/3I50P6a8P4c9SxIYSeZUhS)
@@ -33,13 +31,24 @@ Track:
 ![Thrice - Hover](assets/screenshot_thrice_hover.png)
 
 
+SoundCloud Track:
+
+```markdown
+![music-card](https://soundcloud.com/hearspeakhere/gates)
+```
+
+![Speak](assets/screenshot_speak.png)
+![Speak - Hover](assets/screenshot_speak_hover.png)
+
 ## Installation
 
 1. [Create a Spotify Application](https://developer.spotify.com/my-applications).
 
-2. Copy this whole directory to your user/plugins directory.
+2. [Create a SoundCloud Application](http://soundcloud.com/you/apps).
 
-3. In the plugins settings, fill in the Client ID, Client Secret, and Redirect URI from your Spotify Application.
+3. Copy this whole directory to your user/plugins directory.
+
+4. In the plugins settings, fill in the Client ID, Client Secret, and Redirect URI from your Spotify Application.
     
 ### Thanks
 

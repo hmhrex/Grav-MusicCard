@@ -108,8 +108,8 @@ class MusicCard
         return $content;
     }
     
-	public function process($content, $config = [], $reviews, $spotifyAPI)
-    {   
+	public function process($content, $config = [], $reviews, $spotifyAPI, $soundcloudAPI)
+    {           
         /** @var Twig $twig */
         $twig = self::getGrav()['twig'];
         
@@ -118,7 +118,7 @@ class MusicCard
 
         $content = preg_replace_callback(
             '~musiccard::([0-9a-z]+)::([0-9]+)::M~i',
-            function($match) use ($twig, &$uid, $config, $reviews, $spotifyAPI) {
+            function($match) use ($twig, &$uid, $config, $reviews, $spotifyAPI, $soundcloudAPI) {
                 
                 list($embed, $data) = $this->hashes[$match[0]];
                 
@@ -164,25 +164,60 @@ class MusicCard
                     // Fix date formatting
                     $releaseDate = date("F Y", strtotime($releaseDate));
                     
-                    $musiccard = [
-                        'uid' => $uid++,
-                        'service' => null,
-                        'config' => $config,
-
-                        'raw' => [
-                            'link' => $link,
-                            'cover' => '/' . $localCover,
-                            'artist' => $artist,
-                            'track_title' => $trackTitle,
-                            'album_title' => $albumTitle,
-                            'release_date' => $releaseDate
-                        ],
-                    ];
-
-                    $vars = ['musiccard' => $musiccard];
-                    $template = 'partials/musiccard' . TEMPLATE_EXT;
-                    $embed = $twig->processTemplate($template, $vars);
+                    $source = "spotify";
+                    
+                } else if (preg_match("/https:\/\/.*soundcloud\.com\/.*/i", $data[1], $result)) {
+                    // Soundcloud API setup and authentication
+                    //$soundcloud = new \SoundCloud\Client($soundcloudAPI["soundcloud_id"], //$soundcloudAPI["soundcloud_secret"], $soundcloudAPI["soundcloud_redirect"]);
+                    
+                    $track = $this->get_url('http://api.soundcloud.com/resolve?url=' . $result[0] . "&client_id=" . $soundcloudAPI["soundcloud_id"]);
+                    $track = json_decode($track);
+                    
+                    $link = $track->permalink_url;
+                    $cover = preg_replace('/-large.jpg/', '-t300x300.jpg', $track->artwork_url);
+                    $artist = $track->user->username;
+                    $trackTitle = $track->title;
+                    
+                    if (!is_null($track->release_year)) {
+                        $releaseMonth = $track->release_month;
+                        $releaseYear = $track->release_year;
+                        
+                        $releaseDate = $releaseMonth + " " + $releaseYear;
+                    } else {
+                        $releaseDate = $track->created_at;
+                    }
+                    
+                    // Fix date formatting
+                    $releaseDate = date("F Y", strtotime($releaseDate));
+                                        
+                    // Copy the image file locally to avoid Cross-Origin issues
+                    $localCover = "user/pages/albums/images/" . $artist . " - " . $albumTitle . ".jpeg";        
+                    if (!(file_exists($localCover))) {
+                        file_put_contents($localCover, file_get_contents($cover));
+                    }
+                    
+                    $source = "soundcloud";
                 }
+                
+                $musiccard = [
+                    'uid' => $uid++,
+                    'service' => null,
+                    'config' => $config,
+
+                    'raw' => [
+                        'link' => $link,
+                        'cover' => '/' . $localCover,
+                        'artist' => $artist,
+                        'track_title' => $trackTitle,
+                        'album_title' => $albumTitle,
+                        'release_date' => $releaseDate,
+                        'source' => $source
+                    ],
+                ];
+
+                $vars = ['musiccard' => $musiccard];
+                $template = 'partials/musiccard' . TEMPLATE_EXT;
+                $embed = $twig->processTemplate($template, $vars);
                 
                 return $embed;
                 
@@ -363,4 +398,24 @@ class MusicCard
         
         return $text;
     }
+    
+    protected function get_url($url) 
+    {
+        $ch = curl_init();
+
+        if($ch === false)
+        {
+            die('Failed to create curl object');
+        }
+
+        $timeout = 5;
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
+    }
+    
 }
