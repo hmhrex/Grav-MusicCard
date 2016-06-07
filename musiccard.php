@@ -2,8 +2,13 @@
 /**
  * Music Card
  *
- * Place a Spotify or Soundcloud reference to an album or track in a markdown file 
+ * Place a Spotify or MusicBrainz reference to an album or track in a markdown file 
  * and it will pull in the necessary data. 
+ *
+ * Read musiccard.md for instructions.
+ *
+ * Based on Grav Team's "Grav Page Inject"
+ * Original work licensed under MIT.
  */
 
 namespace Grav\Plugin;
@@ -63,6 +68,8 @@ class MusicCardPlugin extends Plugin
             require_once(__DIR__ . '/vendor/autoload.php');
             // Initialize MusicCard
             require_once(__DIR__ . '/classes/MusicCard.php');
+            // Initialize BCScraper
+            require_once(__DIR__ . '/classes/BCScraper.php');
             
             // Initialize MusicCard class
             $this->musiccard = new MusicCard($this->config);
