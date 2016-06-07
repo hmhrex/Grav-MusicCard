@@ -3,9 +3,6 @@
  * Music Card
  *
  * This file is part of Music Card plugin
- *
- * Dual licensed under the MIT or GPL Version 3 licenses, see LICENSE.
- * http://benjamin-regler.de/license/
  */
 
 namespace Grav\Plugin\MusicCard;
