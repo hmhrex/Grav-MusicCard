@@ -166,29 +166,25 @@ class MusicCard
                     
                     $source = "spotify";
                     
-                } else if (preg_match("/https:\/\/.*soundcloud\.com\/.+\/(.+)/i", $data[1], $results)) {
-                    $fullURL = $results[0];
-                    $trackId = $results[1];
-
+                } else if (preg_match("/https:\/\/.*soundcloud\.com\/.*/i", $data[1], $result)) {
                     // Soundcloud API setup and authentication
-                    $soundcloud = new \SoundCloud\Client($soundcloudAPI["soundcloud_id"], $soundcloudAPI["soundcloud_secret"], $soundcloudAPI["soundcloud_redirect"]);
-
-                    //$track = $soundcloud->get('resolve?url=' . $fullURL);
+                    //$soundcloud = new \SoundCloud\Client($soundcloudAPI["soundcloud_id"], //$soundcloudAPI["soundcloud_secret"], $soundcloudAPI["soundcloud_redirect"]);
                     
-                    $track = json_decode($soundcloud->get('tracks/' . $trackId), true);
+                    $track = $this->get_url('http://api.soundcloud.com/resolve?url=' . $result[0] . "&client_id=" . $soundcloudAPI["soundcloud_id"]);
+                    $track = json_decode($track);
                     
-                    $link = $track["permalink_url"];
-                    $cover = preg_replace('/-large.jpg/', '-t300x300.jpg', $track["artwork_url"]);
-                    $artist = $track["user"]["username"];
-                    $trackTitle = $track["title"];                    
+                    $link = $track->permalink_url;
+                    $cover = preg_replace('/-large.jpg/', '-t300x300.jpg', $track->artwork_url);
+                    $artist = $track->user->username;
+                    $trackTitle = $track->title;
                     
-                    if (!is_null($track["release_year"])) {
-                        $releaseMonth = $track["release_month"];
-                        $releaseYear = $track["release_year"];
+                    if (!is_null($track->release_year)) {
+                        $releaseMonth = $track->release_month;
+                        $releaseYear = $track->release_year;
                         
                         $releaseDate = $releaseMonth + " " + $releaseYear;
                     } else {
-                        $releaseDate = $track["created_at"];
+                        $releaseDate = $track->created_at;
                     }
                     
                     // Fix date formatting
@@ -402,4 +398,24 @@ class MusicCard
         
         return $text;
     }
+    
+    protected function get_url($url) 
+    {
+        $ch = curl_init();
+
+        if($ch === false)
+        {
+            die('Failed to create curl object');
+        }
+
+        $timeout = 5;
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
+    }
+    
 }
