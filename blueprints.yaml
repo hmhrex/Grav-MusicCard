@@ -1,11 +1,11 @@
 name: Music Card
-version: 1.0
-description: "With **Music Card** a user can place a Spotify or MusicBrainz reference to an album or track in a markdown file and it will pull in the necessary data."
+version: 1.2
+description: "With **Music Card** a user can place a Spotify, SoundCloud or Bandcamp link to an album or track in a markdown file and it will pull in metadata."
 icon: trello
 author:
   name: hmh
   email: harley@hicks.house
-  url: http://harlery.hicks.house
+  url: http://harley.hicks.house
 keywords: album, song, track, spotify, music, embed
 license: MIT
 
