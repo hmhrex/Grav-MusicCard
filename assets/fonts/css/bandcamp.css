@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'bandcamp';
+  src: url('../font/bandcamp.eot?96643434');
+  src: url('../font/bandcamp.eot?96643434#iefix') format('embedded-opentype'),
+       url('../font/bandcamp.woff2?96643434') format('woff2'),
+       url('../font/bandcamp.woff?96643434') format('woff'),
+       url('../font/bandcamp.ttf?96643434') format('truetype'),
+       url('../font/bandcamp.svg?96643434#bandcamp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "bandcamp";
+  font-style: normal;
+  line-height: 1em;
+}
+ 
+.icon-bandcamp:before { content: '\e800'; } /* '' */
