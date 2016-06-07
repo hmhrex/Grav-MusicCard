@@ -172,8 +172,10 @@ class MusicCardPlugin extends Plugin
                  ->add('plugin://musiccard/assets/js/color-thief.js');
             $this->grav['assets']
                  ->add('plugin://musiccard/assets/js/music-card.js');
-
         }
+        // Register built-in font assets
+        $this->grav['assets']
+             ->add('plugin://musiccard/assets/fonts/css/bandcamp.css');
         
         // Register assets from MusicCard Services
         $assets = $this->musiccard->getAssets();
