@@ -1,6 +1,6 @@
 # Music Card
 
-Place a Spotify or SoundCloud link to an album or track in a markdown file and it will beautifully pull in the necessary data.
+Place a Spotify, SoundCloud or Bandcamp link to an album or track in a markdown file and it will beautifully pull in the necessary data.
 
 This uses [jwilsson's Spotify Web API PHP library](https://github.com/jwilsson/spotify-web-api-php
 ) to interface with the Spotify API, [mptre's PHP SoundCloud library](https://github.com/mptre/php-soundcloud) to interface with the SoundCloud API, and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
@@ -37,6 +37,14 @@ SoundCloud Track:
 
 ![Speak](assets/screenshot_speak.png)
 ![Speak - Hover](assets/screenshot_speak_hover.png)
+
+Bandcamp Album:
+```markdown
+![music-card](http://thehotelier.bandcamp.com/album/home-like-noplace-is-there-2)
+```
+
+![The Hotelier](assets/screenshot_the_hotelier.png)
+![The Hotelier - Hover](assets/screenshot_the_hotelier_hover.png)
 
 ## Installation
 
