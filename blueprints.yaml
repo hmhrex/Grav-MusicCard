@@ -7,7 +7,7 @@ author:
   email: harley@hicks.house
   url: http://harlery.hicks.house
 keywords: album, song, track, spotify, music, embed
-license: BSD
+license: MIT
 
 form:
   validation: strict
