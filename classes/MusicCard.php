@@ -194,6 +194,27 @@ class MusicCard
                     }
                     
                     $source = "soundcloud";
+                    
+                } else if (preg_match("/http[s]?:\/\/.*\.bandcamp\.com\/(.+)\/.*/", $data[1], $results)) {
+                    $bcscraper = new BCScraper();
+                    
+                    $metadata = $bcscraper->scrape($results[0]);
+                    $link = $metadata["url"];
+                    $cover = $metadata["cover"];
+                    $artist = $metadata["artist"];
+                    $trackTitle = $metadata["trackTitle"];
+                    $albumTitle = $metadata["albumTitle"];
+                    $releaseDate = $metadata["releaseDate"];
+                    $source = "bandcamp";
+                    
+                    // Fix date formatting
+                    $releaseDate = date("F Y", strtotime($releaseDate));
+                                        
+                    // Copy the image file locally to avoid Cross-Origin issues
+                    $localCover = "user/pages/albums/images/" . $artist . " - " . $albumTitle . ".jpeg";        
+                    if (!(file_exists($localCover))) {
+                        file_put_contents($localCover, file_get_contents($cover));
+                    }                
                 }
                 
                 $musiccard = [
