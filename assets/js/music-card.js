@@ -43,7 +43,7 @@ jQuery(window).load(function(){
             lightest = textColor;
         }
         
-        jQuery(this).parents('.music-card').find('.fa-play').css('color', lightest);
+        jQuery(this).parents('.music-card').find('.icon-play').css('color', lightest);
         
     });
 });
