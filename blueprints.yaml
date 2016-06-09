@@ -1,5 +1,5 @@
 name: Music Card
-version: 1.2
+version: 1.2.1
 description: "With **Music Card** a user can place a Spotify, SoundCloud or Bandcamp link to an album or track in a markdown file and it will pull in metadata."
 icon: trello
 author:
