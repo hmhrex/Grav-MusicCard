@@ -175,7 +175,7 @@ class MusicCardPlugin extends Plugin
         }
         // Register built-in font assets
         $this->grav['assets']
-             ->add('plugin://musiccard/assets/fonts/css/bandcamp.css');
+             ->add('plugin://musiccard/assets/fonts/css/logos.css');
         
         // Register assets from MusicCard Services
         $assets = $this->musiccard->getAssets();
