@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'logos';
+  src: url('../font/logos.eot?79378580');
+  src: url('../font/logos.eot?79378580#iefix') format('embedded-opentype'),
+       url('../font/logos.woff2?79378580') format('woff2'),
+       url('../font/logos.woff?79378580') format('woff'),
+       url('../font/logos.ttf?79378580') format('truetype'),
+       url('../font/logos.svg?79378580#logos') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "logos";
+  font-style: normal;
+  line-height: 1em;
+}
+ 
+.icon-bandcamp:before { content: '\e800'; }
+.icon-spotify:before { content: '\e801'; }
+.icon-soundcloud:before { content: '\e802'; }
+.icon-play:before { content: '\e803'; }
