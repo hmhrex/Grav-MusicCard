@@ -1,7 +1,7 @@
 <div class="music-card">
     <div class="album-cover">
         <a href=" {{ musiccard.raw.link }} " target="_blank">
-            <i class="fa fa-play"></i>
+            <i class="icon-play"></i>
             <div class="cover-image">
                 <img src="{{ musiccard.raw.cover }}">
             </div>
@@ -29,10 +29,10 @@
         </div>
         <div class="music-source">
             {% if musiccard.raw.source == 'spotify' %}
-            <i class="fa fa-spotify"></i>
+            <i class="icon-spotify"></i>
             {% endif %}
             {% if musiccard.raw.source == 'soundcloud' %}
-            <i class="fa fa-soundcloud"></i>
+            <i class="icon-soundcloud"></i>
             {% endif %}
             {% if musiccard.raw.source == 'bandcamp' %}
             <i class="icon-bandcamp"></i>
