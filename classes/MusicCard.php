@@ -164,9 +164,7 @@ class MusicCard
                     $source = "spotify";
                     
                 } else if (preg_match("/https:\/\/.*soundcloud\.com\/.*/i", $data[1], $result)) {
-                    // Soundcloud API setup and authentication
-                    //$soundcloud = new \SoundCloud\Client($soundcloudAPI["soundcloud_id"], //$soundcloudAPI["soundcloud_secret"], $soundcloudAPI["soundcloud_redirect"]);
-                    
+                    // Get Soundcloud track info.
                     $track = $this->get_url('http://api.soundcloud.com/resolve?url=' . $result[0] . "&client_id=" . $soundcloudAPI["soundcloud_id"]);
                     $track = json_decode($track);
                     
