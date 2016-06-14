@@ -1,3 +1,9 @@
+# v1.2.3
+## 06/14/2016
+
+1. [](#improved)
+    * Created CHANGELOG.md
+
 # v1.2.2
 ## 06/13/2016
 
@@ -31,7 +37,7 @@
 # v1.0
 ## 06/02/2016
 
-1. {}(#improved)
+1. [](#improved)
     * Moved Spotify application credentials to blueprints.yaml.
 
 # v0.8.6
