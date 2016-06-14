@@ -3,7 +3,7 @@
 Place a Spotify, SoundCloud or Bandcamp link to an album or track in a markdown file and it will beautifully pull in the necessary data.
 
 This uses [jwilsson's Spotify Web API PHP library](https://github.com/jwilsson/spotify-web-api-php
-) to interface with the Spotify API, [mptre's PHP SoundCloud library](https://github.com/mptre/php-soundcloud) to interface with the SoundCloud API, and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
+) to interface with the Spotify API,w and [Lokesh's Color Thief](https://github.com/lokesh/color-thief/) to retrieve colors from the album artwork.
 
 The plan is to eventually support MusicBrainz links for albums that aren't on Spotify.
 
