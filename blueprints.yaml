@@ -93,17 +93,3 @@ form:
               label: Soundcloud API Client ID
               validate:
                 type: textarea
-
-            soundcloud_secret:
-              type: text
-              size: medium
-              label: Soundcloud API Client Secret
-              validate:
-                type: textarea
-
-            soundcloud_redirect:
-              type: text
-              size: medium
-              label: Soundcloud API Redirect URI
-              validate:
-                type: textarea
